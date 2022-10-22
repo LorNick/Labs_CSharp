@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "Lab3_Command": {
+      "commandName": "Project",
+      "commandLineArgs": "-mi 3 -d1st 12.12.2021 -d1end 17.12.2020 -d2st 10.22.2020 -d2end 15.12.2020"
+    },
+    "Lab2_Command": {
+      "commandName": "Project",
+      "commandLineArgs": "-mi 2 -z 0 -y 5f -x -9"
+    },
+    "Lab_Consol": {
+      "commandName": "Project"
+    },
+    "Lab4_Command": {
+      "commandName": "Project",
+      "commandLineArgs": "-mi 4 -s1 \"0.0.0.0\" -s2 \"mail@testing.com\""
+    }
+  }
+}
