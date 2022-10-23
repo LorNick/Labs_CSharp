@@ -23,7 +23,7 @@
         }
 
         /// <summary>Запускаем задачу</summary>
-       public virtual void Run()
+        public virtual void Run()
         {
             if (ReadingData())
                 if (Сalculation())

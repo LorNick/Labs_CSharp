@@ -4,7 +4,6 @@
     {
         protected DateTime dataAStart, dataAEnd, dataBStart, dataBEnd;
 
-        protected int N;
 
         /// <summary>Конструктор</summary>
         public CTask3RecuriosnDate() : base()
@@ -26,29 +25,37 @@
         /// <summary>Расчет</summary>
         public override bool Сalculation()
         {
-            if (dataAEnd < dataBStart || dataBEnd < dataAStart)
+            int n = IntervalN(dataAStart, dataAEnd, dataAStart, dataBStart);
+            if (n == 0)
             {
                 // Как минимум для Фиббоначи
                 Rezult = $"Расчет невозможен, так как пересечений интервалов дат нет. N = 0";
                 return true;
             }
 
-            DateTime dateStart = dataAStart > dataBStart ? dataAStart : dataBStart;
-            DateTime dateEnd = dataAEnd < dataBEnd ? dataAEnd : dataBEnd;
-            TimeSpan interval = dateEnd - dateStart;
-            N = interval.Days + 1;
-
-            Rezult = Fibonachi();
+            Rezult = Fibonachi(n);
             return true;
         }
 
-        /// <summary>Выводим ряд Фибоначчи</summary>
-        protected string Fibonachi()
+        /// <summary>Расчет интервала</summary>
+        public int IntervalN(DateTime d1st, DateTime d1end, DateTime d2st, DateTime d2end)
         {
-            string fib = $"Ряд Фибоначчи для N = {N}: 0";
+            if (d1end < d2st || d2end < d1st)
+                return 0;
+
+            DateTime dst = d1st > d2st ? d1st : d2st;
+            DateTime dend = d1end < d2end ? d1end : d2end;
+            TimeSpan interval = dend - dst;
+            return interval.Days + 1;
+        }
+
+        /// <summary>Выводим ряд Фибоначчи</summary>
+        protected string Fibonachi(int n)
+        {
+            string fib = $"Ряд Фибоначчи для N = {n}: 0";
 
             int j = 1;
-            for (int i = 1; i <= N; i += j)
+            for (int i = 1; i <= n; i += j)
             {
                 j = i - j;
                 fib += " " + i;

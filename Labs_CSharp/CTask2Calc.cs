@@ -22,10 +22,16 @@
 
         /// <summary>Расчет</summary>
         public override bool Сalculation()
-        {
-            double rez = ((double)y - Math.Sqrt(x)) / z;
-            Rezult = $"(Y-sqrt(X))/Z = ({y}-sqrt({x})/{z} = {rez:F3}";
+        {            
+            Rezult = $"{Description} = {Formula(x, y, z)}";
             return true;
+        }
+
+        /// <summary>Вывод результата</summary>
+        public string Formula(int x, int y, int z)
+        {
+            double rez = (y - Math.Sqrt(x)) / z;
+            return $"{rez:F3}";
         }
     }
 }
